@@ -7,6 +7,7 @@ import PatientRegistration from './pages/PatientRegistration';
 import ExamineDetails from './pages/ExamineDetails';
 import HospitalDetails from './pages/HospitalDetails';
 import PatientDetails from './pages/PatientDetails';
+import MedicalRecords from './pages/MedicalRecords';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
       <Route path="/examinedetails" element={<ExamineDetails/>}></Route>
       <Route path="/hospitaldetails" element={<HospitalDetails/>}></Route>
       <Route path="/patientdetails" element={<PatientDetails/>}></Route>
+      <Route path="/medicalrecords" element={<MedicalRecords/>}></Route>
     </Routes>
     </BrowserRouter>
   );
