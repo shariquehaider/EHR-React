@@ -123,4 +123,85 @@ export const medicalRecord = [
         "placeHolder": "Date dd/mm/yyyy",
         "types": "text"
     }
-]
+];
+
+export const generalExaminationDetails = [
+    {
+        "key": 1,
+        "innerText": "Built"
+    },
+    {
+        "key": 2,
+        "innerText": "Nourishment"
+    },
+    {
+        "key": 3,
+        "innerText": "Eyes"
+    },
+    {
+        "key": 4,
+        "innerText": "Tongue"
+    },
+    {
+        "key": 5,
+        "innerText": "Pulse"
+    },
+    {
+        "key": 6,
+        "innerText": "Blood Pressure"
+    },
+    {
+        "key": 7,
+        "innerText": "Temperature"
+    },
+    {
+        "key": 8,
+        "innerText": "Respiratory rate"
+    }
+];
+
+export const investigationsDetails = [
+    {
+        "key": 1,
+        "innerText": "Blood Test"
+    },
+    {
+        "key": 2,
+        "innerText": "Urine Test"
+    },
+    {
+        "key": 3,
+        "innerText": "ECG"
+    },
+    {
+        "key": 4,
+        "innerText": "MRI Scan"
+    },
+    {
+        "key": 5,
+        "innerText": "CT Scan"
+    },
+    {
+        "key": 6,
+        "innerText": "X-ray"
+    }
+];
+
+export const systemicExaminationDetails = [
+    {
+        "key": 1,
+        "innerText": "CVS"
+    },
+    {
+        "key": 2,
+        "innerText": "CNS"
+    },
+    {
+        "key": 3,
+        "innerText": "RS"
+    },
+    {
+        "key": 4,
+        "innerText": "Abdomen System"
+    }
+];

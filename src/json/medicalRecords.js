@@ -83,4 +83,130 @@ export const treatmentSummary = [
         "key": 6,
         "innerText": "Follow Up:"
     }
+];
+
+export const addInsuranceDetails = [
+    {
+        "key": 1,
+        "placeHolder": "Enter Record Id",
+        "types": "number"
+    },
+    {
+        "key": 2,
+        "placeHolder": "Is Insurance applicable?(yes/no)",
+        "types": "text"
+    },
+    {
+        "key": 3,
+        "placeHolder": "Policy Number",
+        "types": "number"
+    },
+    {
+        "key": 4,
+        "placeHolder": "Insurer",
+        "types": "text"
+    },
+    {
+        "key": 5,
+        "placeHolder": "Policy Type",
+        "types": "text"
+    },
+    {
+        "key": 6,
+        "placeHolder": "Policy Limit",
+        "types": "text"
+    }
+]
+export const addPresentIllnessDetails = [
+    {
+        "key": 1,
+        "placeHolder": "Enter Record Id",
+        "types": "number"
+    },
+    {
+        "key": 2,
+        "placeHolder": "Complaints",
+        "types": "text"
+    },
+    {
+        "key": 3,
+        "placeHolder": "Duation",
+        "types": "text"
+    }
+]
+export const addPastIllnessDetails = [
+    {
+        "key": 1,
+        "placeHolder": "Enter Record Id",
+        "types": "number"
+    },
+    {
+        "key": 2,
+        "placeHolder": "Family History",
+        "types": "text"
+    },
+    {
+        "key": 3,
+        "placeHolder": "Personal History",
+        "types": "text"
+    },
+    {
+        "key": 4,
+        "placeHolder": "Drug History",
+        "types": "text"
+    }
+]
+export const addProvisionalDiagnosisDetails = [
+    {
+        "key": 1,
+        "placeHolder": "Enter Record Id",
+        "types": "number"
+    },
+    {
+        "key": 2,
+        "placeHolder": "Diagnosis Summary",
+        "types": "text"
+    },
+    {
+        "key": 3,
+        "placeHolder": "Prescription",
+        "types": "text"
+    }
+]
+export const addTreatmentSummary = [
+    {
+        "key": 1,
+        "placeHolder": "Enter Record Id",
+        "types": "number"
+    },
+    {
+        "key": 2,
+        "placeHolder": "Treatment",
+        "types": "text"
+    },
+    {
+        "key": 3,
+        "placeHolder": "Date of Treatment",
+        "types": "text"
+    },
+    {
+        "key": 4,
+        "placeHolder": "Treated Doctor Id",
+        "types": "number"
+    },
+    {
+        "key": 5,
+        "placeHolder": "Treated Hospital Id",
+        "types": "number"
+    },
+    {
+        "key": 6,
+        "placeHolder": "Discharge",
+        "types": "text"
+    },
+    {
+        "key": 7,
+        "placeHolder": "Follow Up",
+        "types": "text"
+    }
 ]

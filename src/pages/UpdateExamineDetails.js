@@ -3,7 +3,7 @@ import Input from "../components/input";
 import Button from "../components/Button";
 import { investigations, generalExamination, systemicExamination, medicalRecord } from "../json/examineDetails";
 
-export default function ExamineDetails() {
+export default function UpdateExamineDetails() {
     return (
         <div>
             <Header></Header>

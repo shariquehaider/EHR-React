@@ -108,4 +108,27 @@ export const attendentDetails = [
         "key": 3,
         "innerText": "Phone Number:"
     }
+];
+
+export const attendentRegistration = [
+    {
+        "key": 1,
+        "placeHolder": "Enter Patient Id",
+        "types": "number"
+    },
+    {
+        "key": 2,
+        "placeHolder": "Attendant Name",
+        "types": "text"
+    },
+    {
+        "key": 3,
+        "placeHolder": "Attendant Relation",
+        "types": "text"
+    },
+    {
+        "key": 4,
+        "placeHolder": "Phone Number",
+        "types": "number"
+    }
 ]
