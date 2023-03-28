@@ -54,4 +54,58 @@ export const patientRegistration = [
         "placeHolder": "Date: dd/mm/yyyy",
         "types": "text"
     }
+];
+
+export const patientDetails = [
+    {
+        "key": 1,
+        "innerText": "Patient Name:"
+    },
+    {
+        "key": 2,
+        "innerText": "Age:"
+    },
+    {
+        "key": 3,
+        "innerText": "Gender:"
+    },
+    {
+        "key": 4,
+        "innerText": "Height(in ft):"
+    },
+    {
+        "key": 5,
+        "innerText": "Weight(in kg):"
+    },
+    {
+        "key": 6,
+        "innerText": "Address:"
+    },
+    {
+        "key": 7,
+        "innerText": "Phone Number:"
+    },
+    {
+        "key": 8,
+        "innerText": "Email Id:"
+    },
+    {
+        "key": 9,
+        "innerText": "Date"
+    }
+]
+
+export const attendentDetails = [
+    {
+        "key": 1,
+        "innerText": "Attendant Name:"
+    },
+    {
+        "key": 2,
+        "innerText": "Attendant Relation:"
+    },
+    {
+        "key": 3,
+        "innerText": "Phone Number:"
+    }
 ]
