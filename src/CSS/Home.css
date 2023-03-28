@@ -96,4 +96,11 @@
     padding: 1rem;
   }
 
+  .result {
+    display: flex;
+    text-align: left;
+    justify-content: flex-start;
+    padding: 1rem;
+  }
+
   
