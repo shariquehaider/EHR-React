@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Rancho&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&display=swap");
+
+a {
+    text-decoration: none;
+}
+
+
+.Header {
+    width: 100%;
+    background-color: black;
+    padding: 2.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+}
+
+.title {
+    margin-left: 0;
+}
+
+.title a,
+h1 {
+    font-family: 'Rancho', cursive;
+    text-decoration: none;
+    color: white;
+}
+
+.anchors {
+    width: 40%;
+    padding-top: 2.4%;
+    margin-left: 15%;
+}
+
+.anchors a {
+    padding: 2% 5%;
+    border: none;
+    text-decoration: none;
+    color: white;
+    border-radius: 25px;
+    transition-duration: 0.4s;
+}
+
+.anchors a:hover {
+    border-radius: 25px;
+    border: 2px solid white;
+    padding: 2% 6%;
+    color: black;
+    background: white;
+}
+
+
+#sidebar {
+    padding-top: 10%;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    right: -105%;
+    top: 0;
+    background-color: black;
+    transition-duration: 1s;
+    z-index: 1;
+}
+
+#sidebar li {
+    list-style: none;
+    color: White;
+    font-size: 2em;
+    padding: 0.5em;
+    text-align: left;
+    text-decoration: none;
+}
+
+
+.togglebtn {
+    position: absolute;
+    right: 110%;
+    top: 6%;
+}
+
+.togglebtn span {
+    display: block;
+    height: 4px;
+    background-color: white;
+    margin: 5px 0;
+    border-radius: 25px;
+    transition-duration: 0.4s;
+}
+
+.togglebtn {
+    width: 30px;
+}
+
+.one {
+    width: 30px;
+}
+
+.two {
+    width: 20px;
+}
+
+.three {
+    width: 25px;
+}
+
+.togglebtn:hover span {
+    width: 30px;
+}
+
+li a {
+    transition-duration: 0.5s;
+    text-decoration: none;
+    border: none;
+    color: white;
+    font-size:1.2rem;
+}
+
+li a:hover {
+    border-radius: 25px;
+    border: 2px solid white;
+    padding: 1% 6%;
+    transition-duration: 0.2s;
+}
+
+#sidebar.active {
+    transition-duration: 1s;
+    right: 0;
+}
