@@ -4,6 +4,7 @@ import './App.css';
 import DoctorDetails from './pages/DoctorDetails';
 import HospitalRegistration from './pages/HospitalRegistration';
 import PatientRegistration from './pages/PatientRegistration';
+import ExamineDetails from './pages/ExamineDetails';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Route path="/doctordetails" element={<DoctorDetails/>}></Route>
       <Route path="/hospitalregistration" element={<HospitalRegistration/>}></Route>
       <Route path="/patientregistration" element={<PatientRegistration/>}></Route>
+      <Route path="/examinedetails" element={<ExamineDetails/>}></Route>
     </Routes>
     </BrowserRouter>
   );

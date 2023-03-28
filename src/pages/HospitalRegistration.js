@@ -1,5 +1,8 @@
 import Header from "../components/Navbar";
-import Form from "../components/Form";
+import Input from "../components/input";
+import Button from "../components/Button";
+import { hospitalRegistration } from "../json/hosipitalRegistration";
+
 
 
 export default function HospitalRegistration() {
@@ -7,7 +10,10 @@ export default function HospitalRegistration() {
         <div>
             <Header></Header>
             <div className="page_title">Hospital Registration</div>
-            <Form></Form>
+            <from className="form_control">
+            { hospitalRegistration.map(element => <Input key={element.key} placeHolder={element.placeHolder} types={element.types}/>) }
+            <Button></Button>
+            </from>
         </div>
     ) 
 }

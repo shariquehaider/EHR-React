@@ -1,12 +1,9 @@
 
 
-export default function Input() {
+export default function Input(props) {
     return (
         <div>
-            <input
-            type="text"
-                placeholder="First Name"
-            />
+            <input type={props.types} placeholder={props.placeHolder}/>
         </div>
     )
 }

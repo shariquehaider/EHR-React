@@ -1,15 +1,21 @@
 import Header from "../components/Navbar";
-import Form from "../components/Form";
+import Input from "../components/input";
+import Button from "../components/Button";
+import { doctorInput } from "../json/doctorRegistration";
 import "../CSS/Home.css";
 import "../CSS/Navbar.css";
 
 
-export default function DoctorDetails(){
+export default function DoctorDetails(){    
+
     return (
         <div>
             <Header></Header>
             <div className="page_title">Doctor Details</div>
-            <Form></Form>
+            <form className="form_control">
+                <Input placeHolder="Enter Hospital Id" types="number" />)
+                <Button></Button>
+            </form>
         </div>
     )
 }

@@ -1,7 +1,7 @@
-export default function Button(){
+export default function Button(props){
     return (
         <div>
-            <button>Submit</button>
+            <button onClick={props.click}>Submit</button>
         </div>
     )
 }
