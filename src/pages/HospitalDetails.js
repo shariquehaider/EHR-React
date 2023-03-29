@@ -3,17 +3,32 @@ import Button from "../components/Button";
 import Result from "../components/Result";
 import Header from "../components/Navbar";
 import { hospitalDetails } from "../json/hosipitalRegistration";
+import { useState } from "react";
 
 
 export default function HospitalDetails(){
+    const [ id, setId ] = useState("");
+
+    function handleChange(event){ 
+        const value = event.target.value;
+        setId(()=>{
+            return {
+                [id]: value
+            }
+        });
+    }
+
+    function hanldeSubmit(event){
+        event.preventDefault();
+    }
     return(
         <div>
             <Header></Header>
             <div className="page_title">Display Hospital Details</div>
             <form className="form_control">
                 <h2>Hospital Details:</h2>
-                <Input placeHolder="Enter Hospital Id" types="number"/>
-                <Button></Button>
+                <Input placeHolder="Enter Hospital Id" types="number" name="id" value={id} change={handleChange}/>
+                <Button onSubmit={hanldeSubmit}></Button>
             </form>
             <br/>
             <div className="form_control">
