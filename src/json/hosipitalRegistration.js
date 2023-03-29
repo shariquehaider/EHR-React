@@ -2,27 +2,32 @@ export const hospitalRegistration = [
     {
         "key": 1,
         "placeHolder": "Enter Hospital Id",
-        "types": "number"
+        "types": "number",
+        "name": "id"
     },
     {
         "key": 2,
         "placeHolder": "Hospital Block Address",
-        "types": "text"
+        "types": "text",
+        "name": "blockAddress"
     },
     {
         "key": 3,
         "placeHolder": "Hospital Name",
-        "types": "text"
+        "types": "text",
+        "name": "name"
     },
     {
         "key": 4,
         "placeHolder": "Hospital Address",
-        "types": "text"
+        "types": "text",
+        "name": "address"
     },
     {
         "key": 5,
         "placeHolder": "Hospital Specification",
-        "types": "text"
+        "types": "text",
+        "name": "specification"
     }
 ];
 

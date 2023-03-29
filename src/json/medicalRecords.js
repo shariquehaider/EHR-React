@@ -89,124 +89,149 @@ export const addInsuranceDetails = [
     {
         "key": 1,
         "placeHolder": "Enter Record Id",
-        "types": "number"
+        "types": "number",
+        "name": "id"
     },
     {
         "key": 2,
         "placeHolder": "Is Insurance applicable?(yes/no)",
-        "types": "text"
+        "types": "text",
+        "name": "applicable"
     },
     {
         "key": 3,
         "placeHolder": "Policy Number",
-        "types": "number"
+        "types": "number",
+        "name": "policy"
     },
     {
         "key": 4,
         "placeHolder": "Insurer",
-        "types": "text"
+        "types": "text",
+        "name": "insurer"
     },
     {
         "key": 5,
         "placeHolder": "Policy Type",
-        "types": "text"
+        "types": "text",
+        "name": "type"
     },
     {
         "key": 6,
         "placeHolder": "Policy Limit",
-        "types": "text"
+        "types": "text",
+        "name": "limit"
     }
-]
+];
+
 export const addPresentIllnessDetails = [
     {
         "key": 1,
         "placeHolder": "Enter Record Id",
-        "types": "number"
+        "types": "number",
+        "name": "id"
     },
     {
         "key": 2,
         "placeHolder": "Complaints",
-        "types": "text"
+        "types": "text",
+        "name": "complaints"
     },
     {
         "key": 3,
-        "placeHolder": "Duation",
-        "types": "text"
+        "placeHolder": "Duration",
+        "types": "text",
+        "name": "duration"
     }
-]
+];
+
 export const addPastIllnessDetails = [
     {
         "key": 1,
         "placeHolder": "Enter Record Id",
-        "types": "number"
+        "types": "number",
+        "name": "id"
     },
     {
         "key": 2,
         "placeHolder": "Family History",
-        "types": "text"
+        "types": "text",
+        "name": "familyHistory"
     },
     {
         "key": 3,
         "placeHolder": "Personal History",
-        "types": "text"
+        "types": "text",
+        "name": "personalHistory"
     },
     {
         "key": 4,
         "placeHolder": "Drug History",
-        "types": "text"
+        "types": "text",
+        "name": "drugHistory"
     }
 ]
 export const addProvisionalDiagnosisDetails = [
     {
         "key": 1,
         "placeHolder": "Enter Record Id",
-        "types": "number"
+        "types": "number",
+        "name": "id"
     },
     {
         "key": 2,
         "placeHolder": "Diagnosis Summary",
-        "types": "text"
+        "types": "text",
+        "name": "summary"
     },
     {
         "key": 3,
         "placeHolder": "Prescription",
-        "types": "text"
+        "types": "text",
+        "name": "prescription"
     }
 ]
 export const addTreatmentSummary = [
     {
         "key": 1,
         "placeHolder": "Enter Record Id",
-        "types": "number"
+        "types": "number",
+        "name": "id"
     },
     {
         "key": 2,
         "placeHolder": "Treatment",
-        "types": "text"
+        "types": "text",
+        "name": "treatment"
     },
     {
         "key": 3,
         "placeHolder": "Date of Treatment",
-        "types": "text"
+        "types": "text",
+        "name": "treatmentDate"
     },
     {
         "key": 4,
         "placeHolder": "Treated Doctor Id",
-        "types": "number"
+        "types": "number",
+        "name": "doctorId"
     },
     {
         "key": 5,
         "placeHolder": "Treated Hospital Id",
-        "types": "number"
+        "types": "number",
+        "name": "hospitalId"
     },
     {
         "key": 6,
         "placeHolder": "Discharge",
-        "types": "text"
+        "types": "text",
+        "name": "discharge"
     },
     {
         "key": 7,
         "placeHolder": "Follow Up",
-        "types": "text"
+        "types": "text",
+        "name": "follow"
     }
 ]

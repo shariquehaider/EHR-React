@@ -2,37 +2,44 @@ export const investigations = [
     {
         "key": 1,
         "placeHolder": "Enter Record Id",
-        "types": "number"
+        "types": "number",
+        "name": "id"
     },
     {
         "key": 2,
         "placeHolder": "Blood Test",
-        "types": "text"
+        "types": "text",
+        "name": "blood"
     },
     {
         "key": 3,
         "placeHolder": "Urine Test",
-        "types": "text"
+        "types": "text",
+        "name": "urine"
     },
     {
         "key": 4,
         "placeHolder": "ECG",
-        "types": "text"
+        "types": "text",
+        "name": "ecg"
     },
     {
         "key": 5,
         "placeHolder": "MRI Scan",
-        "types": "text"
+        "types": "text",
+        "name": "mri"
     },
     {
         "key": 6,
         "placeHolder": "CT Scan",
-        "types": "text"
+        "types": "text",
+        "name": "ct"
     },
     {
         "key": 7,
         "placeHolder": "X-ray",
-        "types": "text"
+        "types": "text",
+        "name": "xray"
     }
 ];
 
@@ -40,47 +47,56 @@ export const generalExamination = [
     {
         "key": 1,
         "placeHolder": "Enter Record Id",
-        "types": "number"
+        "types": "number",
+        "name": "id"
     },
     {
         "key": 2,
         "placeHolder": "Built",
-        "types": "text"
+        "types": "text",
+        "name": "built"
     },
     {
         "key": 3,
         "placeHolder": "Nourishment",
-        "types": "text"
+        "types": "text",
+        "name": "nourishment"
     },
     {
         "key": 4,
         "placeHolder": "Eyes",
-        "types": "text"
+        "types": "text",
+        "name": "eyes"
     },
     {
         "key": 5,
         "placeHolder": "Tongue",
-        "types": "text"
+        "types": "text",
+        "name": "tongue"
     },
     {
         "key": 6,
         "placeHolder": "Pulse",
-        "types": "text"
+        "types": "text",
+        "name": "pulse"
     },
     {
         "key": 7,
         "placeHolder": "Blood Pressure",
-        "types": "text"
+        "types": "text",
+        "name": "bp"
     },
     {
         "key": 8,
         "placeHolder": "Temperature",
-        "types": "text"
+        "types": "text",
+        "name": "temp"
     },
     {
         "key": 9,
         "placeHolder": "Respiratory rate",
-        "types": "text"
+        "types": "text",
+        "name": "respiratory"
     }
 ];
 
@@ -88,27 +104,32 @@ export const systemicExamination = [
     {
         "key": 1,
         "placeHolder": "Enter Record Id",
-        "types": "number"
+        "types": "number",
+        "name": "id"
     },
     {
         "key": 2,
         "placeHolder": "CVS",
-        "types": "text"
+        "types": "text",
+        "name": "cvs"
     },
     {
         "key": 3,
         "placeHolder": "CNS",
-        "types": "text"
+        "types": "text",
+        "name": "cns"
     },
     {
         "key": 4,
         "placeHolder": "RS",
-        "types": "text"
+        "types": "text", 
+        "name": "rs"
     },
     {
         "key": 5,
         "placeHolder": "Abdomen System",
-        "types": "text"
+        "types": "text",
+        "name": "abdomen"
     }
 ];
 
@@ -116,12 +137,14 @@ export const medicalRecord = [
     {
         "key": 1,
         "placeHolder": "Enter Patient Id",
-        "types": "number"
+        "types": "number",
+        "name": "id"
     },
     {
         "key": 2,
         "placeHolder": "Date dd/mm/yyyy",
-        "types": "text"
+        "types": "text",
+        "name": "date"
     }
 ];
 

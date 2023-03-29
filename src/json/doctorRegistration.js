@@ -4,27 +4,32 @@ export const doctorInput = [
     {
         "key": 1,
         "placeholder": "Enter Doctor Id",
-        "types": "number"
+        "types": "number",
+        "name": "id"
     },
     {
         "key": 2,
         "placeholder": "Doctor Block Address",
-        "types": "text"
+        "types": "text",
+        "name": "blockAddress"
     },
     {
         "key": 3,
         "placeholder": "Doctor Name",
-        "types": "text"
+        "types": "text",
+        "name": "name"
     },
     {
         "key": 4,
         "placeholder": "Doctor Specification",
-        "types": "text"
+        "types": "text",
+        "name": "specification"
     },
     {
         "key": 5,
-        "placeholder": "Doctor Specification",
-        "types": "text"
+        "placeholder": "Doctor Address",
+        "types": "text",
+        "name": "address"
     }
 ];
 

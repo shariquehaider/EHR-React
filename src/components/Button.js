@@ -1,7 +1,7 @@
 export default function Button(props){
     return (
         <div>
-            <button onClick={props.click}>Submit</button>
+            <button onClick={props.onSubmit}>Submit</button>
         </div>
     )
 }

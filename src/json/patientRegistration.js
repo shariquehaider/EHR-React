@@ -2,57 +2,68 @@ export const patientRegistration = [
     {
         "key": 1,
         "placeHolder": "Enter Patient Id",
-        "types": "number"
+        "types": "number",
+        "name": "id"
     },
     {
         "key": 2,
         "placeHolder": "Hospital Block Address",
-        "types": "text"
+        "types": "text",
+        "name": "blockAddress"
     },
     {
         "key": 3,
         "placeHolder": "Patient Name",
-        "types": "text"
+        "types": "text",
+        "name": "name"
     },
     {
         "key": 4,
         "placeHolder": "Age",
-        "types": "number"
+        "types": "number",
+        "name": "age"
     },
     {
         "key": 5,
         "placeHolder": "Gender",
-        "types": "text"
+        "types": "text",
+        "name": "gender"
     },
     {
         "key": 6,
         "placeHolder": "Height(in ft)",
-        "types": "number"
+        "types": "number",
+        "name": "height"
     },
     {
         "key": 7,
         "placeHolder": "Weight(in kg)",
-        "types": "number"
+        "types": "number",
+        "name": "weight"
     },
     {
         "key": 8,
         "placeHolder": "Address",
-        "types": "text"
+        "types": "text",
+        "name": "address"
     },
     {
         "key": 9,
         "placeHolder": "Phone Number",
-        "types": "number"
+        "types": "number",
+        "name": "phoneNumber"
     },
     {
         "key": 10,
         "placeHolder": "Email Id",
-        "types": "email"
+        "types": "email",
+        "name": "email"
     },
     {
         "key": 11,
         "placeHolder": "Date: dd/mm/yyyy",
-        "types": "text"
+        "types": "text",
+        "name": "date"
     }
 ];
 
@@ -114,21 +125,25 @@ export const attendentRegistration = [
     {
         "key": 1,
         "placeHolder": "Enter Patient Id",
-        "types": "number"
+        "types": "number",
+        "name": "id"
     },
     {
         "key": 2,
         "placeHolder": "Attendant Name",
-        "types": "text"
+        "types": "text",
+        "name": "name"
     },
     {
         "key": 3,
         "placeHolder": "Attendant Relation",
-        "types": "text"
+        "types": "text",
+        "name": "relation"
     },
     {
         "key": 4,
         "placeHolder": "Phone Number",
-        "types": "number"
+        "types": "number",
+        "name": "phoneNumber"
     }
 ]
