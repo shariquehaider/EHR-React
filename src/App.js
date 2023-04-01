@@ -12,6 +12,7 @@ import ViewExamineDetails from './pages/ViewExamineDetails';
 import AddRecords from './pages/AddRecords';
 
 function App() {
+
   return (
     <BrowserRouter>
     <Routes>

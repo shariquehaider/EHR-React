@@ -30,6 +30,12 @@ export const doctorInput = [
         "placeholder": "Doctor Address",
         "types": "text",
         "name": "address"
+    },
+    {
+        "key": 6,
+        "placeholder": "Phone Number",
+        "types": "number",
+        "name": "phone"
     }
 ];
 

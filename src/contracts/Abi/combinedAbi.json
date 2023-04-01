@@ -1,0 +1,325 @@
+{
+    "_format": "hh-sol-artifact-1",
+    "contractName": "combined",
+    "sourceName": "contracts/Solidity/combined.sol",
+    "abi": [
+        {
+            "inputs": [],
+            "stateMutability": "nonpayable",
+            "type": "constructor"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "patient_id",
+                    "type": "uint256"
+                }
+            ],
+            "name": "retreive_attendant_details",
+            "outputs": [
+                {
+                    "internalType": "string",
+                    "name": "",
+                    "type": "string"
+                },
+                {
+                    "internalType": "string",
+                    "name": "",
+                    "type": "string"
+                },
+                {
+                    "internalType": "uint256",
+                    "name": "",
+                    "type": "uint256"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "uint16",
+                    "name": "doctor_id",
+                    "type": "uint16"
+                }
+            ],
+            "name": "retreive_doctor_details",
+            "outputs": [
+                {
+                    "internalType": "string",
+                    "name": "",
+                    "type": "string"
+                },
+                {
+                    "internalType": "string",
+                    "name": "",
+                    "type": "string"
+                },
+                {
+                    "internalType": "uint256",
+                    "name": "",
+                    "type": "uint256"
+                },
+                {
+                    "internalType": "string",
+                    "name": "",
+                    "type": "string"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "_hospital_id",
+                    "type": "uint256"
+                }
+            ],
+            "name": "retreive_hospital_details",
+            "outputs": [
+                {
+                    "internalType": "string",
+                    "name": "",
+                    "type": "string"
+                },
+                {
+                    "internalType": "string",
+                    "name": "",
+                    "type": "string"
+                },
+                {
+                    "internalType": "string",
+                    "name": "",
+                    "type": "string"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "patient_id",
+                    "type": "uint256"
+                }
+            ],
+            "name": "retreive_patient_details",
+            "outputs": [
+                {
+                    "internalType": "string",
+                    "name": "",
+                    "type": "string"
+                },
+                {
+                    "internalType": "uint256",
+                    "name": "",
+                    "type": "uint256"
+                },
+                {
+                    "internalType": "string",
+                    "name": "",
+                    "type": "string"
+                },
+                {
+                    "internalType": "string",
+                    "name": "",
+                    "type": "string"
+                },
+                {
+                    "internalType": "uint256",
+                    "name": "",
+                    "type": "uint256"
+                },
+                {
+                    "internalType": "string",
+                    "name": "",
+                    "type": "string"
+                },
+                {
+                    "internalType": "uint256",
+                    "name": "",
+                    "type": "uint256"
+                },
+                {
+                    "internalType": "string",
+                    "name": "",
+                    "type": "string"
+                },
+                {
+                    "internalType": "uint256",
+                    "name": "",
+                    "type": "uint256"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "patient_id",
+                    "type": "uint256"
+                },
+                {
+                    "internalType": "string",
+                    "name": "_attendant_name",
+                    "type": "string"
+                },
+                {
+                    "internalType": "string",
+                    "name": "_attendant_relation",
+                    "type": "string"
+                },
+                {
+                    "internalType": "uint256",
+                    "name": "_attendant_phn_no",
+                    "type": "uint256"
+                }
+            ],
+            "name": "store_attendant_details",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "uint16",
+                    "name": "doctor_id",
+                    "type": "uint16"
+                },
+                {
+                    "internalType": "address",
+                    "name": "_doctor_block_address",
+                    "type": "address"
+                },
+                {
+                    "internalType": "string",
+                    "name": "_doctor_name",
+                    "type": "string"
+                },
+                {
+                    "internalType": "string",
+                    "name": "_doctor_specialisation",
+                    "type": "string"
+                },
+                {
+                    "internalType": "uint256",
+                    "name": "_doctor_ph_no",
+                    "type": "uint256"
+                },
+                {
+                    "internalType": "string",
+                    "name": "_doctor_address",
+                    "type": "string"
+                }
+            ],
+            "name": "store_doctor_details",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "_hospital_id",
+                    "type": "uint256"
+                },
+                {
+                    "internalType": "address",
+                    "name": "_hospital_block_address",
+                    "type": "address"
+                },
+                {
+                    "internalType": "string",
+                    "name": "_hospital_name",
+                    "type": "string"
+                },
+                {
+                    "internalType": "string",
+                    "name": "_hospital_address",
+                    "type": "string"
+                },
+                {
+                    "internalType": "string",
+                    "name": "_hospital_spec",
+                    "type": "string"
+                }
+            ],
+            "name": "store_hospital_details",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "patient_id",
+                    "type": "uint256"
+                },
+                {
+                    "internalType": "address",
+                    "name": "pblock",
+                    "type": "address"
+                },
+                {
+                    "internalType": "string",
+                    "name": "_patient_name",
+                    "type": "string"
+                },
+                {
+                    "internalType": "uint256",
+                    "name": "_age",
+                    "type": "uint256"
+                },
+                {
+                    "internalType": "string",
+                    "name": "_gender",
+                    "type": "string"
+                },
+                {
+                    "internalType": "string",
+                    "name": "_height",
+                    "type": "string"
+                },
+                {
+                    "internalType": "uint256",
+                    "name": "_weight",
+                    "type": "uint256"
+                },
+                {
+                    "internalType": "string",
+                    "name": "_patient_address",
+                    "type": "string"
+                },
+                {
+                    "internalType": "uint256",
+                    "name": "_phone_no",
+                    "type": "uint256"
+                },
+                {
+                    "internalType": "string",
+                    "name": "_email_id",
+                    "type": "string"
+                },
+                {
+                    "internalType": "uint256",
+                    "name": "_date",
+                    "type": "uint256"
+                }
+            ],
+            "name": "store_patient_details",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        }
+    ]
+}
