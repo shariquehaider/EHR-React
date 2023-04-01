@@ -6,7 +6,7 @@ import { useState } from "react";
 import abi from "../contracts/Abi/combinedAbi.json";
 import Web3 from "web3";
 
-const contractaddress = '0x41F8C6987f386d162E0995e17973dd3Ac67a5790';
+const contractAddress = '0x41F8C6987f386d162E0995e17973dd3Ac67a5790';
 const hospitalAbi = abi;
 
 export default function HospitalRegistration() {
@@ -54,7 +54,7 @@ export default function HospitalRegistration() {
     } 
 
     function handleSubmit(event){
-        const myContract = new Web3.eth.Contract(hospitalAbi, contractaddress, { from: currentAccount, gasPrice: '5000000', gas: '500000' });
+        const myContract = new Web3.eth.Contract(hospitalAbi, contractAddress, { from: currentAccount, gasPrice: '5000000', gas: '500000' });
         const result = myContract.methods.store_hospital_details(...hospital).send((err, result) => {
             if (err) { console.log(err); }
         });

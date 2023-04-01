@@ -3,7 +3,11 @@ import Button from "../components/Button";
 import Header from "../components/Navbar";
 import Result from "../components/Result";
 import { insuranceDetails, presentIllnessDetails, pastIllnessDetails, provisionalDiagnosisDetails, treatmentSummary } from "../json/medicalRecords";
+import Web3 from "web3";
+import abi from "../contracts/Abi/records.json";
 
+const contractAddress = '0x0Fd1688a1c54aF5452F448214dB7F1757B7b1FB2';
+const recordsAbi = abi;
 
 export default function MedicalRecords() {
     return (

@@ -6,10 +6,11 @@ import { useState } from "react";
 import Web3 from "web3";
 import abi from "../contracts/Abi/records.json";
 
-const contractaddress = '0x0Fd1688a1c54aF5452F448214dB7F1757B7b1FB2';
+const contractAddress = '0x0Fd1688a1c54aF5452F448214dB7F1757B7b1FB2';
 const recordsAbi = abi;
 
 export default function AddRecords() {
+
     const [ insurance, setInsurance ] = useState({
         id: "",
         applicable: "",
@@ -124,21 +125,21 @@ export default function AddRecords() {
     }
 
     function handlePostSubmit(event){
-        const myContract = new Web3.eth.Contract(recordsAbi, contractaddress, { from: currentAccount, gasPrice: '5000000', gas: '5000000' });
+        const myContract = new Web3.eth.Contract(recordsAbi, contractAddress, { from: currentAccount, gasPrice: '5000000', gas: '5000000' });
         const insuranceResult = myContract.methods.insurance_details(...insurance).send((err, result) => {
-            if (err) { console.log(err); }
+            if (err) console.log(err);
         });
         const presentIllnessResult = myContract.methods.present_illness(...presentIllness).send((err, result) => {
-            if (err) { console.log(err); }
+            if (err) console.log(err);
         });
         const pastIllnessResult = myContract.methods.past_illness(...pastIllness).send((err, result) => {
-            if (err) { console.log(err); }
+            if (err) console.log(err);
         });
-        const provisionalDiagnosisResult = myContract.methods.func_diagnosis(...addProvisionalDiagnosisDetails).send((err, result) => {
-            if (err) { console.log(err); }
+        const provisionalDiagnosisResult = myContract.methods.func_diagnosis(...provisionalDiagnosis).send((err, result) => {
+            if (err) console.log(err);
         });        
-		const treatmentResult = myContract.methods.treatment_summary(tpid, td1, td2, td3, td4, td5, td6).send((err, result) => {
-			if (err) { console.log(err); }
+		const treatmentResult = myContract.methods.treatment_summary(...treatment).send((err, result) => {
+			if (err) console.log(err);
 		});
         console.log(treatmentResult);
         console.log(provisionalDiagnosisResult);

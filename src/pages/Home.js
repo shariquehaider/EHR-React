@@ -8,7 +8,7 @@ import abi from "../contracts/Abi/combinedAbi.json";
 import Web3 from "web3";
 
 
-const contractaddress = '0x41F8C6987f386d162E0995e17973dd3Ac67a5790';
+const contractAddress = '0x41F8C6987f386d162E0995e17973dd3Ac67a5790';
 const doctorAbi = abi;
 
 export default function Home() {
@@ -57,7 +57,7 @@ export default function Home() {
     }
 
     function handleClick(event) {
-        const myContract = new Web3.eth.Contract(doctorAbi, contractaddress, { from: currentAccount, gasPrice: '5000000', gas: '500000' });
+        const myContract = new Web3.eth.Contract(doctorAbi, contractAddress, { from: currentAccount, gasPrice: '5000000', gas: '500000' });
         const output = myContract.methods.store_doctor_details(...doctor).send(function (err, result) {
             if (err) { console.log(err); }
         });
