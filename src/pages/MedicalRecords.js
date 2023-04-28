@@ -3,21 +3,62 @@ import Button from "../components/Button";
 import Header from "../components/Navbar";
 import Result from "../components/Result";
 import { insuranceDetails, presentIllnessDetails, pastIllnessDetails, provisionalDiagnosisDetails, treatmentSummary } from "../json/medicalRecords";
-import Web3 from "web3";
-import abi from "../contracts/Abi/records.json";
+import { useEffect, useState } from "react";
+import getRecordContract from "../utils/record";
 
 const contractAddress = '0x0Fd1688a1c54aF5452F448214dB7F1757B7b1FB2';
-const recordsAbi = abi;
+let contract;
 
 export default function MedicalRecords() {
+
+    const [ prevId, setPrevId ] = useState();
+    const [ prevRecord, setPrevRecord ] = useState();
+    const [ recordId, setRecordId ] = useState();
+    const [ records, setRecords ] = useState();
+
+    useEffect(()=> {
+        contract = getRecordContract(contractAddress);
+    });
+
+    function handleChange(event){
+        const { name, value } = event.target;
+        setPrevId(()=>{
+            return {
+                [name]: value
+            }
+        });
+    }
+
+    function handleRecordChange(event){
+        const { name, value } = event.target;
+        setRecordId(()=>{
+            return {
+                [name]: value
+            }
+        });
+    }
+
+    function onSubmit(event) {
+        setPrevRecord(async () => {
+            await contract.get_previous_dates(prevId).then(res => res.json());
+        });
+        event.preventDefault();
+    }
+
+    function onSubmitRecords(){
+        setRecords(async () => {
+            await contract.get_insurance(recordId).then(res => res.json());
+        });
+    }
+
     return (
         <div>
             <Header></Header>
             <div className="page_title"></div>
             <form className="form_control">
                 <h2>Previous dates of medical record updated</h2>
-                <Input placeHolder="Enter Patient Id" types="number"/>
-                <Button></Button>
+                <Input placeHolder="Enter Patient Id" types="number" change={handleChange}/>
+                <Button onSubmit={onSubmit}></Button>
             </form>
             <br/>
             <div className="form_control">
@@ -27,8 +68,8 @@ export default function MedicalRecords() {
             <br/>
             <form className="form_control">
                 <h2>Patient Medical Record Details</h2>
-                <Input placeHolder="Enter Record Id:"/>
-                <Button></Button>
+                <Input placeHolder="Enter Record Id:" types="number" change={handleRecordChange}/>
+                <Button onSubmit={onSubmitRecords}></Button>
             </form>
             <br/>
             <div className="form_control">

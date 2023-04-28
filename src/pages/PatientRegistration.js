@@ -2,12 +2,12 @@ import Header from "../components/Navbar";
 import Input from "../components/input";
 import Button from "../components/Button";
 import { patientRegistration, attendentRegistration } from "../json/patientRegistration";
-import { useState } from "react";
-import abi from "../contracts/Abi/combinedAbi.json";
+import { useEffect, useState } from "react";
 import Web3 from "web3";
+import getBodyExamineContract from "../utils/bodyexamine";
 
 const contractaddress = '0x41F8C6987f386d162E0995e17973dd3Ac67a5790';
-const patientAbi = abi;
+let contract;
 
 export default function PatientRegistration() {
     const [patient, setPatient] = useState({
@@ -31,30 +31,9 @@ export default function PatientRegistration() {
         number: ""
     });
 
-    const [currentAccount, setCurrentAccount] = useState();
-
-    const checkWalletIsConnected = async () => {
-        const { ethereum } = window;
-
-        if (!ethereum) {
-            console.log("Make Sure You have Meta Mask");
-            return;
-        } else {
-            console.log("Wallet Exist! We are ready to go.")
-            window.web3 = new Web3(ethereum);
-            ethereum.autoRefreshOnNetworkChange = false;
-        }
-        const accounts = await ethereum.enable();
-        if (accounts.length !== 0) {
-            const account = accounts[0];
-            console.log(`Found an authorized account: ${account}`);
-            setCurrentAccount(account);
-        } else {
-            console.log("No authorized account found")
-        }
-    };
-
-    window.onload = checkWalletIsConnected();
+    useEffect(()=> {
+        contract = getBodyExamineContract(contractaddress);
+    });
 
     function handleChangePatient(event) {
         const { name, value } = event.target;
@@ -76,16 +55,8 @@ export default function PatientRegistration() {
         });
     }
 
-    function handleSubmit(event) {
-        const myContract = new Web3.eth.Contract(patientAbi, contractaddress, { from: currentAccount, gasPrice: '5000000', gas: '5000000' });
-        const resultPatient = myContract.methods.store_patient_details(...patient).send((err, result) => {
-            if (err) { console.log(err); }
-        });
-        const resultAttendent = myContract.methods.store_attendant_details(...attendant).send((err, result) => {
-            if (err) { console.log(err); }
-        });
-        console.log(resultPatient);
-        console.log(resultAttendent);
+    async function handleSubmit(event) {
+        await contract.store_attendant_details(...attendant);
         event.preventDefault();
     }
 
