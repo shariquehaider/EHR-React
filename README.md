@@ -6,7 +6,15 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 Clone [EHR-Backend](https://github.com/shariquehaider/EHR-Backend);
 
-Compile the EHR-Backend using ### `npm run compile:React` command.
+Compile the EHR-Backend using `npm run compile:React` command.
+
+Deploy EHR-Backend using `npm run deploy` command.
+
+Come back to EHR-React and run `npm run start` command.
+
+## Note
+
+EHR-React and EHR-Backend should cloned at the same level.
 
 ## Available Scripts
 
