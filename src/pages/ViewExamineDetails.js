@@ -4,6 +4,9 @@ import Button from "../components/Button";
 import Header from "../components/Navbar";
 import { investigationsDetails, systemicExaminationDetails, generalExaminationDetails } from "../json/examineDetails";
 import { useState } from "react";
+import { contractAddress } from "../contractAddress.js";
+
+let contract;
 
 export default function ViewExamineDetails() {
     const [ patientId, setPatientId ] = useState("");

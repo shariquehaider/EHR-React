@@ -3,10 +3,9 @@ import Input from "../components/input";
 import Button from "../components/Button";
 import { patientRegistration, attendentRegistration } from "../json/patientRegistration";
 import { useEffect, useState } from "react";
-import Web3 from "web3";
 import getBodyExamineContract from "../utils/bodyexamine";
+import { contractAddress } from "../contractAddress.js";
 
-const contractaddress = '0x41F8C6987f386d162E0995e17973dd3Ac67a5790';
 let contract;
 
 export default function PatientRegistration() {
@@ -32,7 +31,7 @@ export default function PatientRegistration() {
     });
 
     useEffect(()=> {
-        contract = getBodyExamineContract(contractaddress);
+        contract = getBodyExamineContract(contractAddress);
     });
 
     function handleChangePatient(event) {

@@ -5,9 +5,9 @@ import Header from "../components/Navbar";
 import { patientDetails, attendentDetails } from "../json/patientRegistration";
 import { useEffect, useState } from "react";
 import getBodyExamineContract from "../utils/bodyexamine";
+import { contractAddress } from "../contractAddress.js";
 
 let contract;
-const contractAddress = "0x0Fd1688a1c54aF5452F448214dB7F1757B7b1FB2";
 
 export default function PatientDetails() {
     const [ id, setId ] = useState("");

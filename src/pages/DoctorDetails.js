@@ -7,31 +7,29 @@ import "../CSS/Home.css";
 import "../CSS/Navbar.css";
 import { useEffect, useState } from "react";
 import getCombinedContract from "../utils/combine";
+import { contractAddress } from "../contractAddress.js";
 
-const contractAddress = '0x41F8C6987f386d162E0995e17973dd3Ac67a5790';
 let contract;
 
 export default function DoctorDetails(){    
-    const [ id, setId ] = useState();
-    const [ result, setResult ] = useState();
+    const [ result, setResult ] = useState([]);
+    let id = "";
 
     useEffect(() => {
         contract = getCombinedContract(contractAddress);
+        console.log(contract);
     });
 
     function handleChange(event){ 
         const { name, value } = event.target;
-        setId(()=>{
-            return {
-                [name]: value
-            }
-        });
+        id = value;
     }
 
-    function handleSubmit(event){
-        setResult(async ()=>{
-            await contract.retreive_doctor_details(id).then(res => res.json);
-        });
+    async function handleSubmit(event){
+        console.log(id)
+        // setResult(async ()=>{
+        result = await contract.retreive_doctor_details(id);
+        // });
         contract.on("acountCreatedEvent", async (event) => {
             console.log("Retreive Data", event);
         })
@@ -44,7 +42,7 @@ export default function DoctorDetails(){
             <Header></Header>
             <div className="page_title">Doctor Details</div>
             <form className="form_control">
-                <Input placeHolder="Enter Hospital Id" types="number" name="id" change={handleChange}/>
+                <Input key="1" placeHolder="Enter Hospital Id" types="number" name="id" change={handleChange}/>
                 <Button onSubmit={handleSubmit}></Button>
             </form>
             <br/>

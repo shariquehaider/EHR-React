@@ -5,9 +5,8 @@ import { doctorInput } from "../json/doctorRegistration";
 import "../CSS/Home.css";
 import { useEffect, useState } from "react";
 import getCombinedContract from "../utils/combine";
+import { contractAddress } from "../contractAddress.js";
 
-
-const contractAddress = '0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9';
 let contract; 
 
 export default function Home() {
@@ -40,8 +39,7 @@ export default function Home() {
         await contract.store_doctor_details(...doctor);
         contract.on("accountCreatedEvent", async (event) => {
             console.log("Data", event)
-        })
-        event.preventDefault();
+        });
     };
 
     return (

@@ -4,8 +4,8 @@ import Button from "../components/Button";
 import { investigations, generalExamination, systemicExamination, medicalRecord } from "../json/examineDetails";
 import { useEffect, useState } from "react";
 import getBodyExamineContract from "../utils/bodyexamine";
+import { contractAddress } from "../contractAddress.js";
 
-const contractAddress = '0xb692fc689FF5A53894847F1D96996B0Fb4149163';
 let contract;
 
 export default function UpdateExamineDetails() {

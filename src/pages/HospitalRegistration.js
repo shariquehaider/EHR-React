@@ -4,8 +4,8 @@ import Button from "../components/Button";
 import { hospitalRegistration } from "../json/hosipitalRegistration";
 import { useEffect, useState } from "react";
 import getCombinedContract from "../utils/combine";
+import { contractAddress } from "../contractAddress.js";
 
-const contractAddress = '0x41F8C6987f386d162E0995e17973dd3Ac67a5790';
 let contract;
 
 export default function HospitalRegistration() {

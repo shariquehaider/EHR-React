@@ -4,8 +4,8 @@ import Header from "../components/Navbar";
 import { addInsuranceDetails, addPastIllnessDetails, addPresentIllnessDetails, addProvisionalDiagnosisDetails, addTreatmentSummary } from "../json/medicalRecords";
 import { useEffect, useState } from "react";
 import getRecordContract from "../utils/record";
+import { contractAddress } from "../contractAddress.js";
 
-const contractAddress = '0x0Fd1688a1c54aF5452F448214dB7F1757B7b1FB2';
 let contract;
 
 export default function AddRecords() {
