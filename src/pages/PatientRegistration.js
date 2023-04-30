@@ -52,7 +52,8 @@ export default function PatientRegistration() {
 
     function handleSubmit(event) {
         contract = getContract(contractAddress);
-        contract.store_attendant_details(attendant.id);
+        contract.store_patient_details(patient.id, patient.blockAddress, patient.name, patient.age, patient.gender, patient.height, patient.weight, patient.address, patient.phoneNumber, patient.email, patient.date);
+        contract.store_attendant_details(attendant.id, attendant.name, attendant.relation, attendant.number);
         event.preventDefault();
     }
 

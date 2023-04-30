@@ -89,15 +89,15 @@ export default function UpdateExamineDetails() {
 
     function handleSubmitMedical(event) {  
         contract = getContract(contractAddress);
-        contract.previous_dates(...medicalRecord);
+        contract.previous_dates(medicalRecord.id, medicalRecord.date);
         event.preventDefault();
     }
 
     function handleSubmitUpdate(event){ 
         contract = getContract(contractAddress);
-        contract.investigations(...investigation);
-        contract.general_examin(...generalExam);
-        contract.sys_examin(...systemicExam);
+        contract.investigations(investigation.id, investigation.blood, investigation.urine, investigation.ecg, investigation.mri, investigation.ct, investigation.xray);
+        contract.general_examin(generalExam.id, generalExam.built, generalExam.nourishment, generalExam.eyes, generalExam.tongue, generalExam.pulse, generalExam.bp, generalExam.temp, generalExam.respiratory);
+        contract.sys_examin(systemicExam.id, systemicExam.cvs, systemicExam.cns, systemicExam.rs, systemicExam.abs, systemicExam.abs);
         event.preventDefault();
     }
     

@@ -5,6 +5,7 @@ import { addInsuranceDetails, addPastIllnessDetails, addPresentIllnessDetails, a
 import { useEffect, useState } from "react";
 import getContract from "../utils/combine";
 import { contractAddress } from "../contractAddress.js";
+import { type } from "@testing-library/user-event/dist/type";
 
 let contract;
 
@@ -100,11 +101,11 @@ export default function AddRecords() {
 
     function handlePostSubmit(event){
         contract = getContract(contractAddress);
-        contract.insurance_details(...insurance);
-        contract.present_illness(...presentIllness);
-        contract.past_illness(...pastIllness);
-        contract.func_diagnosis(...provisionalDiagnosis);
-        contract.treatment_summary(...treatment);
+        contract.insurance_details(insurance.id, insurance.applicable, insurance.policy, insurance.insurer, insurance.type, insurance.limit);
+        contract.present_illness(presentIllness.id, presentIllness.complaints, presentIllness.duration);
+        contract.past_illness(pastIllness.id, pastIllness.familyHistory, pastIllness.personalHistory, pastIllness.drugHistory);
+        contract.func_diagnosis(provisionalDiagnosis.id, provisionalDiagnosis.summary, provisionalDiagnosis.presciption);
+        contract.treatment_summary(treatment.id, treatment.treatment, treatment.treatmentDate, treatment.doctorId, treatment.hospitalId, treatment.discharge, treatment.follow);
         event.preventDefault();
     }
 
