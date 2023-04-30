@@ -12,41 +12,41 @@ let contract;
 export default function MedicalRecords() {
 
     const [ prevId, setPrevId ] = useState();
-    const [ prevRecord, setPrevRecord ] = useState();
+    const [ prevRecord, setPrevRecord ] = useState([]);
     const [ recordId, setRecordId ] = useState();
-    const [ records, setRecords ] = useState();
+    const [ records, setRecords ] = useState([]);
+
+    let responseOne = [];
+    let responseTwo = [];
 
     function handleChange(event){
-        const { name, value } = event.target;
-        setPrevId(()=>{
-            return {
-                [name]: value
-            }
-        });
+        setPrevId(event.target.value);
     }
 
     function handleRecordChange(event){
-        const { name, value } = event.target;
-        setRecordId(()=>{
-            return {
-                [name]: value
-            }
-        });
+        setRecordId(event.target.value);
     }
 
     function onSubmit(event) {
         contract = getContract(contractAddress);
-        setPrevRecord(async () => {
-            await contract.get_previous_dates(prevId).then(res => res.json());
+        contract.get_previous_dates(prevId).then(res => {
+            for(let i = 0; i<res.length; i++) {
+                if (i !== 2) responseOne.push(res[i]);
+            }
         });
+        setPrevRecord(responseOne);
         event.preventDefault();
     }
 
-    function onSubmitRecords(){
+    function onSubmitRecords(event){
         contract = getContract(contractAddress);
-        setRecords(async () => {
-            await contract.get_insurance(recordId).then(res => res.json());
+        contract.get_insurance(recordId).then(res => {
+            for(let i = 0; i<res.length; i++) {
+                if (i !== 2) responseTwo.push(res[i]);
+            }
         });
+        setRecords(responseTwo);
+        event.preventDefault();
     }
 
     return (
@@ -55,7 +55,7 @@ export default function MedicalRecords() {
             <div className="page_title"></div>
             <form className="form_control">
                 <h2>Previous dates of medical record updated</h2>
-                <Input placeHolder="Enter Patient Id" types="number" change={handleChange}/>
+                <Input placeHolder="Enter Patient Id" types="number" value={prevId} change={handleChange}/>
                 <Button onSubmit={onSubmit}></Button>
             </form>
             <br/>
@@ -66,7 +66,7 @@ export default function MedicalRecords() {
             <br/>
             <form className="form_control">
                 <h2>Patient Medical Record Details</h2>
-                <Input placeHolder="Enter Record Id:" types="number" change={handleRecordChange}/>
+                <Input placeHolder="Enter Record Id:" types="number" value={recordId} change={handleRecordChange}/>
                 <Button onSubmit={onSubmitRecords}></Button>
             </form>
             <br/>

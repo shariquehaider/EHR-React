@@ -6,31 +6,37 @@ import { patientDetails, attendentDetails } from "../json/patientRegistration";
 import { useState } from "react";
 import getContract from "../utils/combine";
 import { contractAddress } from "../contractAddress.js";
+import { BigNumber } from "ethers";
 
 let contract;
 
 export default function PatientDetails() {
     const [ id, setId ] = useState("");
-    const [ patientResult, setPatientResult ] = useState();
-    const [ attendantResult, setAttendantResult ] = useState();
+    let responseOne = [];
+    let responseTwo = []
+    const [ patientResult, setPatientResult ] = useState([]);
+    const [ attendantResult, setAttendantResult ] = useState([]);
 
     function handleChange(event){ 
-        const value = event.target.value;
-        setId(()=>{
-            return {
-                [id]: value
-            }
-        });
+        setId(event.target.value);
     }
 
     function hanldeSubmit(event){
-        contract = getContract(contractAddress);
-        setPatientResult(async ()=> {
-            await contract.retreive_patient_details(id).then(res => res.json());
+        contract = getContract(contractAddress)
+        contract.retreive_patient_details(id).then(res => {
+            for(const ele of res){
+                if(typeof ele === 'object')  responseOne.push(BigNumber.from(ele["_hex"]).toString());
+                else responseOne.push(ele)
+            }
         });
-        setAttendantResult(async () => {
-            await contract.retreive_attendant_details(id).then(res => res.json());
-        })
+        contract.retreive_attendant_details(id).then(res => {
+            for(let ele of res) {
+                if(typeof ele === 'object') responseTwo.push(BigNumber.from(ele["_hex"]).toString());
+                else responseTwo.push(ele);
+            }
+        });
+        setPatientResult(responseOne);
+        setAttendantResult(responseTwo);
         event.preventDefault();
     }
     return (
@@ -44,9 +50,9 @@ export default function PatientDetails() {
             <br/>
             <div className="form_control">
                 <h2>Patient Details</h2>
-                { patientDetails.map(element => <Result key={element.key} innerText={element.innerText}/>) }
+                { patientDetails.map((element, i) => <Result key={element.key} innerText={element.innerText} result={patientResult[i]}/>) }
                 <h2>Attendant Details</h2>
-                { attendentDetails.map(element => <Result key={element.key} innerText={element.innerText}/>) }
+                { attendentDetails.map((element, i) => <Result key={element.key} innerText={element.innerText} result={attendantResult[i]}/>) }
             </div>
         </div>
     )

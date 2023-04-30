@@ -11,22 +11,23 @@ let contract;
 
 export default function HospitalDetails(){
     const [ id, setId ] = useState("");
-    const [ result,  setResult ] = useState();
+    const [ result,  setResult ] = useState([]);
+    let response = [];
 
     function handleChange(event){ 
-        const value = event.target.value;
-        setId(()=>{
-            return {
-                [id]: value
-            }
-        });
+        setId(event.target.value)
     }
 
     function hanldeSubmit(event){
         contract = getContract(contractAddress);
-        setResult(async ()=> {
-            await contract.retreive_hospital_details(id).then(res => res.json);
+        contract.retreive_hospital_details(id).then(res => {
+            console.log(res);
+            for(let i = 0; i<res.length; i++) {
+                response.push(res[i]);
+            }
         });
+        setResult(response);
+        console.log(result);
         event.preventDefault();
     }
     
@@ -42,7 +43,7 @@ export default function HospitalDetails(){
             <br/>
             <div className="form_control">
                 <h2>Result</h2>
-                { hospitalDetails.map(element => <Result key={element.key} innerText={element.innerText}/>) }
+                { hospitalDetails.map((element, i) => <Result key={element.key} innerText={element.innerText} result={result[i]}/>) }
             </div>
         </div>
     )

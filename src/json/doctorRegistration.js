@@ -46,14 +46,14 @@ export const doctorDetails = [
     },
     {
         "key": 2,
-        "innerText": "Doctor Specification"
+        "innerText": "Doctor Specification: "
     },
     {
         "key": 3,
-        "innerText": "Doctor Phone Number"
+        "innerText": "Doctor Phone Number: "
     },
     {
         "key": 4,
-        "innerText": "Doctor Address"
+        "innerText": "Doctor Address: "
     }
 ]

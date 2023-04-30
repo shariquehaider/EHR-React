@@ -2,7 +2,7 @@ import Header from "../components/Navbar";
 import Input from "../components/input";
 import Button from "../components/Button";
 import { investigations, generalExamination, systemicExamination, medicalRecord } from "../json/examineDetails";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import getContract from "../utils/combine";
 import { contractAddress } from "../contractAddress.js";
 
@@ -42,9 +42,6 @@ export default function UpdateExamineDetails() {
         cns: "",
         rs: "",
         abdomen: ""
-    });
-
-    useEffect(()=> {
     });
 
     function handleChangeMedical(event) { 

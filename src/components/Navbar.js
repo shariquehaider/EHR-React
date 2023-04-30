@@ -22,7 +22,9 @@ function Header() {
     </div>
       <ul>
         <li><a href="/">Doctor Registration</a></li>
+        <li><a href="/doctordetails">Doctor Details</a></li>
         <li><a href="/hospitalregistration" >Hospital Registration</a></li>
+        <li><a href="/hospitaldetails" >Hospital Details</a></li>
         <li><a href="/patientregistration">Patient Registration</a></li>
         <li><a href="/patientdetails">View Patient Details</a></li>
         <li><a href="/medicalrecords">View Medical Record</a></li>

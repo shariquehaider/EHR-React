@@ -35,7 +35,7 @@ export default function Home() {
 
     function handleClick(event) {
         contract = getContract(contractAddress);
-        contract.store_doctor_details(doctor.id, doctor.blockAddress, doctor.name, doctor.specification, doctor.address, doctor.phone);
+        contract.store_doctor_details(doctor.id, doctor.blockAddress, doctor.name, doctor.specification, doctor.phone, doctor.address);
         event.preventDefault();
     };
 

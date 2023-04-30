@@ -6,38 +6,67 @@ import { investigationsDetails, systemicExaminationDetails, generalExaminationDe
 import { useState } from "react";
 import getContract from "../utils/combine";
 import { contractAddress } from "../contractAddress.js";
+import { BigNumber } from "ethers";
 
 let contract;
 
 export default function ViewExamineDetails() {
-    const [ patientId, setPatientId ] = useState("");
-    const [ recordId, setRecordId ] = useState("");
+    let responseOne = [];
+    let responseTwo = [];
+    let responseThree = [];
+    let responseFour = [];
+    const [ patientId, setPatientId ] = useState();
+    const [ recordId, setRecordId ] = useState();
+    const [ date, setDate ] = useState([]);
+    const [ investigation, setInvestigation ] = useState([]);
+    const [ general, setGeneral ] = useState([]);
+    const [ system, setSystem ] = useState([]);
 
     function handleChangePatient(event){ 
         const value = event.target.value;
-        setPatientId(()=>{
-            return {
-                [patientId]: value
-            }
-        });
+        setPatientId(value);
     }
     
     function handleChangeRecord(event){ 
         const value = event.target.value;
-        setRecordId(()=>{
-            return {
-                [recordId]: value
-            }
-        });
+        setRecordId(value);
     }
 
     function handleSubmitPatient(event){
         contract = getContract(contractAddress);
+        contract.get_previous_dates(patientId).then(res => {
+            for(const ele of res) {
+                if(typeof ele === 'object') responseOne.push(BigNumber.from(ele["_hex"]).toString());
+                else responseOne.push(ele);
+            }
+        });
+        setDate(responseOne);
         event.preventDefault();
     }
 
     function handleSubmitRecord(event){
         contract = getContract(contractAddress);
+        contract.get_investigations(recordId).then(res => {
+            for(const ele of res) {
+                if(typeof ele === 'object') responseTwo.push(BigNumber.from(ele["_hex"]).toString());
+                else responseTwo.push(ele);
+            }
+        });
+        contract.get_general_examin(recordId).then(res => {
+            for(const ele of res) {
+                if(typeof ele === 'object') responseThree.push(BigNumber.from(ele["_hex"]).toString());
+                else responseThree.push(ele);
+            }
+        });
+        contract.get_sys_examin(recordId).then(res => {
+            for(const ele of res) {
+                if(typeof ele === 'object') responseFour.push(BigNumber.from(ele["_hex"]).toString());
+                else responseFour.push(ele);
+            }
+        });
+        setInvestigation(responseTwo);
+        setGeneral(responseThree);
+        setSystem(responseFour);
         event.preventDefault();
     }
 
@@ -58,14 +87,16 @@ export default function ViewExamineDetails() {
             </form>
             <br/>
             <div className="form_control">
+                <h2>Dates: </h2>
+                <Result key="1" innerText="Dates: " result={date[0]} />
                 <h2>Investigations</h2>
-                { investigationsDetails.map(element => <Result key={element.key} innerText={element.innerText}/>) }
+                { investigationsDetails.map((element, i) => <Result key={element.key} innerText={element.innerText} result={investigation[i]}/>) }
                 <br/>
                 <h2>General Examination</h2>
-                { generalExaminationDetails.map(element => <Result key={element.key} innerText={element.innerText}/>) }
+                { generalExaminationDetails.map((element, i) => <Result key={element.key} innerText={element.innerText} result={general[i]}/>) }
                 <br/>
                 <h2>Systemic Examination</h2>
-                { systemicExaminationDetails.map(element => <Result key={element.key} innerText={element.innerText}/>) }
+                { systemicExaminationDetails.map((element, i) => <Result key={element.key} innerText={element.innerText} result={system[i]}/>) }
             </div>
         </div>
     )

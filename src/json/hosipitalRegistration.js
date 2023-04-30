@@ -34,18 +34,14 @@ export const hospitalRegistration = [
 export const hospitalDetails = [
     {
         "key": 1,
-        "innerText": "Hospital"
+        "innerText": "Hospital Name:"
     },
     {
         "key": 2,
-        "innerText": "Name"
+        "innerText": "Hospital Address:"
     },
     {
         "key": 3,
-        "innerText": "Hospital Address"
-    },
-    {
-        "key": 4,
-        "innerText": "Hospital Specification"
+        "innerText": "Hospital Specification:"
     }
 ]
