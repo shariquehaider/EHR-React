@@ -43,7 +43,7 @@ export default function DoctorDetails(){
             <br/>
             <div className="form_control">
                 <h2>Result</h2>
-                { doctorDetails.map((element, i) => <Result key={element.key} innerText={element.innerText} result={result}/>)}
+                { doctorDetails.map((element, i) => <Result key={element.key} innerText={element.innerText} result={result[i]}/>)}
             </div>
         </div>
     )
