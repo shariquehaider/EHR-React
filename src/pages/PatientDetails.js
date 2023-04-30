@@ -50,9 +50,9 @@ export default function PatientDetails() {
             <br/>
             <div className="form_control">
                 <h2>Patient Details</h2>
-                { patientDetails.map((element, i) => <Result key={element.key} innerText={element.innerText} result={patientResult[i]}/>) }
+                { patientDetails.map((element, i) => <div><Result key={element.key} innerText={element.innerText}/><p>{patientDetails[i]}</p></div>) }
                 <h2>Attendant Details</h2>
-                { attendentDetails.map((element, i) => <Result key={element.key} innerText={element.innerText} result={attendantResult[i]}/>) }
+                { attendentDetails.map((element, i) => <div><Result key={element.key} innerText={element.innerText}/><p>{attendantResult[i]}</p></div>) }
             </div>
         </div>
     )

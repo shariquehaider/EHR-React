@@ -15,9 +15,17 @@ export default function MedicalRecords() {
     const [ prevRecord, setPrevRecord ] = useState([]);
     const [ recordId, setRecordId ] = useState();
     const [ records, setRecords ] = useState([]);
+    const [ presentIllness, setPresentIllness ] = useState([]);
+    const [ pastIllness, setPastIllness ] = useState([]);
+    const [ diagnosis, setDiagnosis ] = useState([]);
+    const [ treatment, setTreatment ] = useState([]);
 
     let responseOne = [];
     let responseTwo = [];
+    let responseThree = [];
+    let responseFour = [];
+    let responseFive = [];
+    let responseSix = [];
 
     function handleChange(event){
         setPrevId(event.target.value);
@@ -45,7 +53,30 @@ export default function MedicalRecords() {
                 if (i !== 2) responseTwo.push(res[i]);
             }
         });
+        contract.get_present_illness(recordId).then(res => {
+            for(let i = 0; i<res.length; i++) {
+                if (i !== 2) responseThree.push(res[i]);
+            }
+        });
+        contract.get_past_illness(recordId).then(res => {
+            for(let i = 0; i<res.length; i++) {
+                if (i !== 2) responseFour.push(res[i]);
+            }
+        });
+        contract.get_func_diagnosis(recordId).then(res => {
+            for(let i = 0; i<res.length; i++) {
+                if (i !== 2) responseFive.push(res[i]);
+            }
+        });
+        contract.get_treatment_summary(recordId).then(res => {
+            for(let i = 0; i<res.length; i++) {
+                if (i !== 2) responseSix.push(res[i]);
+            }
+        });
         setRecords(responseTwo);
+        setPresentIllness(responseThree);
+        setPastIllness(responseFour);
+        setDiagnosis(responseFive);
         event.preventDefault();
     }
 
@@ -61,7 +92,7 @@ export default function MedicalRecords() {
             <br/>
             <div className="form_control">
                 <h2>Result</h2>
-                <Result innerText="Dates:"/>
+                <Result innerText="Dates:"/><p>{prevRecord[0]}</p>
             </div>
             <br/>
             <form className="form_control">
@@ -72,19 +103,19 @@ export default function MedicalRecords() {
             <br/>
             <div className="form_control">
                 <h2>Insurance Details</h2>
-                { insuranceDetails.map(element => <Result key={element.key} innerText={element.innerText}/>) }
+                { insuranceDetails.map((element, i) => <div><Result key={element.key} innerText={element.innerText}/><p>{records[i]}</p></div>) }
                 <br/>
                 <h2>Present Illness Details</h2>
-                { presentIllnessDetails.map(element => <Result key={element.key} innerText={element.innerText}/>) }
+                { presentIllnessDetails.map((element, i) => <div><Result key={element.key} innerText={element.innerText}/><p>{presentIllness[i]}</p></div>) }
                 <br/>
                 <h2>Past Illness Details</h2>
-                { pastIllnessDetails.map(element => <Result key={element.key} innerText={element.innerText}/>) }
+                { pastIllnessDetails.map((element, i) => <div><Result key={element.key} innerText={element.innerText}/><p>{pastIllness[i]}</p></div>) }
                 <br/>
                 <h2>Provisional Diagnosis Details</h2>
-                { provisionalDiagnosisDetails.map(element => <Result key={element.key} innerText={element.innerText}/>) }
+                { provisionalDiagnosisDetails.map((element, i) => <div><Result key={element.key} innerText={element.innerText}/><p>{diagnosis[i]}</p></div>) }
                 <br/>
                 <h2>Treatment Summary</h2>
-                { treatmentSummary.map(element => <Result key={element.key} innerText={element.innerText}/>) }
+                { treatmentSummary.map((element, i) => <div><Result key={element.key} innerText={element.innerText}/><p>{treatment[i]}</p></div>) }
                 <br/>
             </div>
         </div>

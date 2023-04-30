@@ -27,7 +27,6 @@ export default function HospitalDetails(){
             }
         });
         setResult(response);
-        console.log(result);
         event.preventDefault();
     }
     
@@ -43,7 +42,7 @@ export default function HospitalDetails(){
             <br/>
             <div className="form_control">
                 <h2>Result</h2>
-                { hospitalDetails.map((element, i) => <Result key={element.key} innerText={element.innerText} result={result[i]}/>) }
+                { hospitalDetails.map((element, i) => <div><Result key={element.key} innerText={element.innerText} /><p>{result[i]}</p></div>) }
             </div>
         </div>
     )

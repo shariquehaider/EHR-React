@@ -90,13 +90,13 @@ export default function ViewExamineDetails() {
                 <h2>Dates: </h2>
                 <Result key="1" innerText="Dates: " result={date[0]} />
                 <h2>Investigations</h2>
-                { investigationsDetails.map((element, i) => <Result key={element.key} innerText={element.innerText} result={investigation[i]}/>) }
+                { investigationsDetails.map((element, i) => <div><Result key={element.key} innerText={element.innerText}/><p>{investigation[i]}</p></div>) }
                 <br/>
                 <h2>General Examination</h2>
-                { generalExaminationDetails.map((element, i) => <Result key={element.key} innerText={element.innerText} result={general[i]}/>) }
+                { generalExaminationDetails.map((element, i) => <div><Result key={element.key} innerText={element.innerText}/><p>{general[i]}</p></div>) }
                 <br/>
                 <h2>Systemic Examination</h2>
-                { systemicExaminationDetails.map((element, i) => <Result key={element.key} innerText={element.innerText} result={system[i]}/>) }
+                { systemicExaminationDetails.map((element, i) => <div><Result key={element.key} innerText={element.innerText}/><p>{system[i]}</p></div>) }
             </div>
         </div>
     )

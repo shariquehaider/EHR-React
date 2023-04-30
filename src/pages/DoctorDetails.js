@@ -17,6 +17,8 @@ export default function DoctorDetails(){
     const [result, setResult] = useState([]);
     let response = [];
 
+    const [ex, setEx] = useState();
+
     function handleChange(event){ 
         setId(event.target.value);
     }
@@ -31,7 +33,6 @@ export default function DoctorDetails(){
             }
         });
         setResult(response)
-        console.log(result);
         event.preventDefault();
     }
 
@@ -46,7 +47,8 @@ export default function DoctorDetails(){
             <br/>
             <div className="form_control">
                 <h2>Result</h2>
-                {doctorDetails.map((element, i) => <Result key={element.key} innerText={element.innerText} result={result[i]}/>)}
+                <p>{ex}</p>
+                {doctorDetails.map((element, i) => <div><Result key={element.key} innerText={element.innerText} /><p>{result[i]}</p></div>)}
             </div>
         </div>
     )
