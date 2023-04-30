@@ -10,8 +10,38 @@ import PatientDetails from './pages/PatientDetails';
 import MedicalRecords from './pages/MedicalRecords';
 import ViewExamineDetails from './pages/ViewExamineDetails';
 import AddRecords from './pages/AddRecords';
+import Web3 from 'web3';
+import { useState } from 'react';
+
+let acc;
 
 function App() {
+  const [currentAccount, setCurrentAccount] = useState();
+
+    const checkWalletIsConnected = async () => {
+        const { ethereum } = window;
+
+        if (!ethereum) {
+            console.log("Make Sure You have Meta Mask");
+            return;
+        } else {
+            console.log("Wallet Exist! We are ready to go.");
+            window.web3 = new Web3(ethereum);
+            window.web3 = new Web3(new Web3.providers.HttpProvider("http://127.0.0.1:8545"));
+            ethereum.autoRefreshOnNetworkChange = false;
+        }
+        const accounts = await ethereum.enable();
+        if (accounts.length !== 0) {
+            const account = accounts[0];
+            console.log(`Found an authorized account: ${account}`);
+            setCurrentAccount(account);
+            acc = currentAccount;
+        } else {
+            console.log("No authorized account found")
+        }
+    }
+
+    window.onload = checkWalletIsConnected();
 
   return (
     <BrowserRouter>
@@ -32,3 +62,4 @@ function App() {
 }
 
 export default App;
+export { acc };

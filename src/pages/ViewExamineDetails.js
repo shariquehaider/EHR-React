@@ -4,6 +4,7 @@ import Button from "../components/Button";
 import Header from "../components/Navbar";
 import { investigationsDetails, systemicExaminationDetails, generalExaminationDetails } from "../json/examineDetails";
 import { useState } from "react";
+import getContract from "../utils/combine";
 import { contractAddress } from "../contractAddress.js";
 
 let contract;
@@ -31,10 +32,12 @@ export default function ViewExamineDetails() {
     }
 
     function handleSubmitPatient(event){
+        contract = getContract(contractAddress);
         event.preventDefault();
     }
 
     function handleSubmitRecord(event){
+        contract = getContract(contractAddress);
         event.preventDefault();
     }
 

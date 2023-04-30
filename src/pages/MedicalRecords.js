@@ -3,8 +3,8 @@ import Button from "../components/Button";
 import Header from "../components/Navbar";
 import Result from "../components/Result";
 import { insuranceDetails, presentIllnessDetails, pastIllnessDetails, provisionalDiagnosisDetails, treatmentSummary } from "../json/medicalRecords";
-import { useEffect, useState } from "react";
-import getRecordContract from "../utils/record";
+import { useState } from "react";
+import getContract from "../utils/combine";
 import { contractAddress } from "../contractAddress.js";
 
 let contract;
@@ -15,10 +15,6 @@ export default function MedicalRecords() {
     const [ prevRecord, setPrevRecord ] = useState();
     const [ recordId, setRecordId ] = useState();
     const [ records, setRecords ] = useState();
-
-    useEffect(()=> {
-        contract = getRecordContract(contractAddress);
-    });
 
     function handleChange(event){
         const { name, value } = event.target;
@@ -39,6 +35,7 @@ export default function MedicalRecords() {
     }
 
     function onSubmit(event) {
+        contract = getContract(contractAddress);
         setPrevRecord(async () => {
             await contract.get_previous_dates(prevId).then(res => res.json());
         });
@@ -46,6 +43,7 @@ export default function MedicalRecords() {
     }
 
     function onSubmitRecords(){
+        contract = getContract(contractAddress);
         setRecords(async () => {
             await contract.get_insurance(recordId).then(res => res.json());
         });

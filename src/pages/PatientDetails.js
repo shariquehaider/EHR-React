@@ -3,8 +3,8 @@ import Button from "../components/Button";
 import Result from "../components/Result";
 import Header from "../components/Navbar";
 import { patientDetails, attendentDetails } from "../json/patientRegistration";
-import { useEffect, useState } from "react";
-import getBodyExamineContract from "../utils/bodyexamine";
+import { useState } from "react";
+import getContract from "../utils/combine";
 import { contractAddress } from "../contractAddress.js";
 
 let contract;
@@ -13,10 +13,6 @@ export default function PatientDetails() {
     const [ id, setId ] = useState("");
     const [ patientResult, setPatientResult ] = useState();
     const [ attendantResult, setAttendantResult ] = useState();
-
-    useEffect(() => {
-        contract = getBodyExamineContract(contractAddress);
-    });
 
     function handleChange(event){ 
         const value = event.target.value;
@@ -28,6 +24,7 @@ export default function PatientDetails() {
     }
 
     function hanldeSubmit(event){
+        contract = getContract(contractAddress);
         setPatientResult(async ()=> {
             await contract.retreive_patient_details(id).then(res => res.json());
         });

@@ -2,8 +2,8 @@ import Header from "../components/Navbar";
 import Input from "../components/input";
 import Button from "../components/Button";
 import { patientRegistration, attendentRegistration } from "../json/patientRegistration";
-import { useEffect, useState } from "react";
-import getBodyExamineContract from "../utils/bodyexamine";
+import { useState } from "react";
+import getContract from "../utils/combine";
 import { contractAddress } from "../contractAddress.js";
 
 let contract;
@@ -30,10 +30,6 @@ export default function PatientRegistration() {
         number: ""
     });
 
-    useEffect(()=> {
-        contract = getBodyExamineContract(contractAddress);
-    });
-
     function handleChangePatient(event) {
         const { name, value } = event.target;
         setPatient(prevValue => {
@@ -54,8 +50,9 @@ export default function PatientRegistration() {
         });
     }
 
-    async function handleSubmit(event) {
-        await contract.store_attendant_details(...attendant);
+    function handleSubmit(event) {
+        contract = getContract(contractAddress);
+        contract.store_attendant_details(attendant.id);
         event.preventDefault();
     }
 

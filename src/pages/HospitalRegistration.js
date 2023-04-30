@@ -2,8 +2,8 @@ import Header from "../components/Navbar";
 import Input from "../components/input";
 import Button from "../components/Button";
 import { hospitalRegistration } from "../json/hosipitalRegistration";
-import { useEffect, useState } from "react";
-import getCombinedContract from "../utils/combine";
+import { useState } from "react";
+import getContract from "../utils/combine";
 import { contractAddress } from "../contractAddress.js";
 
 let contract;
@@ -17,10 +17,6 @@ export default function HospitalRegistration() {
         address: ""
     });
 
-    useEffect(()=>{
-        contract = getCombinedContract(contractAddress);
-    });
-
     function handleChange(event){
         const { name, value } = event.target;
         setHospital(preValue => {
@@ -31,8 +27,9 @@ export default function HospitalRegistration() {
         });
     } 
 
-    async function handleSubmit(event){
-        await contract.store_hospital_details(...hospital);
+    function handleSubmit(event){
+        contract = getContract(contractAddress);
+        contract.store_hospital_details(hospital.id, hospital.blockAddress, hospital.name, hospital.specification, hospital.address);
         event.preventDefault();
     };
 

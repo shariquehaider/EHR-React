@@ -5,8 +5,8 @@ import { doctorDetails } from "../json/doctorRegistration";
 import Result from "../components/Result";
 import "../CSS/Home.css";
 import "../CSS/Navbar.css";
-import { useEffect, useState } from "react";
-import getCombinedContract from "../utils/combine";
+import { useState } from "react";
+import getContract from "../utils/combine";
 import { contractAddress } from "../contractAddress.js";
 
 let contract;
@@ -15,21 +15,16 @@ export default function DoctorDetails(){
     const [ result, setResult ] = useState([]);
     let id = "";
 
-    useEffect(() => {
-        contract = getCombinedContract(contractAddress);
-        console.log(contract);
-    });
-
     function handleChange(event){ 
         const { name, value } = event.target;
         id = value;
     }
 
     async function handleSubmit(event){
-        console.log(id)
-        // setResult(async ()=>{
+        contract = getContract(contractAddress);
+        setResult(async ()=>{
         result = await contract.retreive_doctor_details(id);
-        // });
+        });
         contract.on("acountCreatedEvent", async (event) => {
             console.log("Retreive Data", event);
         })

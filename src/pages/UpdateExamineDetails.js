@@ -3,7 +3,7 @@ import Input from "../components/input";
 import Button from "../components/Button";
 import { investigations, generalExamination, systemicExamination, medicalRecord } from "../json/examineDetails";
 import { useEffect, useState } from "react";
-import getBodyExamineContract from "../utils/bodyexamine";
+import getContract from "../utils/combine";
 import { contractAddress } from "../contractAddress.js";
 
 let contract;
@@ -45,7 +45,6 @@ export default function UpdateExamineDetails() {
     });
 
     useEffect(()=> {
-        contract = getBodyExamineContract(contractAddress);
     });
 
     function handleChangeMedical(event) { 
@@ -88,15 +87,17 @@ export default function UpdateExamineDetails() {
         });
     }
 
-    async function handleSubmitMedical(event) {  
-        await contract.previous_dates(...medicalRecord);
+    function handleSubmitMedical(event) {  
+        contract = getContract(contractAddress);
+        contract.previous_dates(...medicalRecord);
         event.preventDefault();
     }
 
-    async function handleSubmitUpdate(event){ 
-        await contract.investigations(...investigation);
-        await contract.general_examin(...generalExam);
-        await contract.sys_examin(...systemicExam);
+    function handleSubmitUpdate(event){ 
+        contract = getContract(contractAddress);
+        contract.investigations(...investigation);
+        contract.general_examin(...generalExam);
+        contract.sys_examin(...systemicExam);
         event.preventDefault();
     }
     

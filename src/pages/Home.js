@@ -3,11 +3,11 @@ import Input from "../components/input";
 import Button from "../components/Button";
 import { doctorInput } from "../json/doctorRegistration";
 import "../CSS/Home.css";
-import { useEffect, useState } from "react";
-import getCombinedContract from "../utils/combine";
+import { useState } from "react";
+import getContract from "../utils/combine";
 import { contractAddress } from "../contractAddress.js";
 
-let contract; 
+let contract;
 
 export default function Home() {
 
@@ -20,10 +20,6 @@ export default function Home() {
         phone: ""
     });
 
-    useEffect(() => {
-        contract = getCombinedContract(contractAddress);
-        console.log(contract)
-    });
 
     function handleChange(event) {
         const { name, value } = event.target;
@@ -35,11 +31,12 @@ export default function Home() {
         });
     }
 
-    async function handleClick(event) {
-        await contract.store_doctor_details(...doctor);
-        contract.on("accountCreatedEvent", async (event) => {
-            console.log("Data", event)
-        });
+
+
+    function handleClick(event) {
+        contract = getContract(contractAddress);
+        contract.store_doctor_details(doctor.id, doctor.blockAddress, doctor.name, doctor.specification, doctor.address, doctor.phone);
+        event.preventDefault();
     };
 
     return (

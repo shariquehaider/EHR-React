@@ -3,7 +3,7 @@ import Button from "../components/Button";
 import Header from "../components/Navbar";
 import { addInsuranceDetails, addPastIllnessDetails, addPresentIllnessDetails, addProvisionalDiagnosisDetails, addTreatmentSummary } from "../json/medicalRecords";
 import { useEffect, useState } from "react";
-import getRecordContract from "../utils/record";
+import getContract from "../utils/combine";
 import { contractAddress } from "../contractAddress.js";
 
 let contract;
@@ -46,10 +46,6 @@ export default function AddRecords() {
         hospitalId: "",
         discharge: "",
         follow: ""
-    });
-
-    useEffect(() => {
-        contract = getRecordContract(contractAddress);
     });
 
     function handleChangeInsurance(event){
@@ -102,28 +98,13 @@ export default function AddRecords() {
         });
     }
 
-    async function handlePostSubmit(event){
-        // const myContract = new Web3.eth.Contract(recordsAbi, contractAddress, { from: currentAccount, gasPrice: '5000000', gas: '5000000' });
-        // const insuranceResult = myContract.methods.insurance_details(...insurance).send((err, result) => {
-        //     if (err) console.log(err);
-        // });
-        await contract.insurance_details(...insurance);
-        // const presentIllnessResult = myContract.methods.present_illness(...presentIllness).send((err, result) => {
-        //     if (err) console.log(err);
-        // });
-        await contract.present_illness(...presentIllness);
-        // const pastIllnessResult = myContract.methods.past_illness(...pastIllness).send((err, result) => {
-        //     if (err) console.log(err);
-        // });
-        await contract.past_illness(...pastIllness);
-        // const provisionalDiagnosisResult = myContract.methods.func_diagnosis(...provisionalDiagnosis).send((err, result) => {
-        //     if (err) console.log(err);
-        // });
-        await contract.func_diagnosis(...provisionalDiagnosis);
-		// const treatmentResult = myContract.methods.treatment_summary(...treatment).send((err, result) => {
-		// 	if (err) console.log(err);
-		// });
-        await contract.treatment_summary(...treatment);
+    function handlePostSubmit(event){
+        contract = getContract(contractAddress);
+        contract.insurance_details(...insurance);
+        contract.present_illness(...presentIllness);
+        contract.past_illness(...pastIllness);
+        contract.func_diagnosis(...provisionalDiagnosis);
+        contract.treatment_summary(...treatment);
         event.preventDefault();
     }
 
